@@ -90,8 +90,67 @@
         <link rel="stylesheet" type="text/css" href="css_dronboarding/estilos.css"> 
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
         <link href="css/bootstrap.min.css" type="text/css" rel="stylesheet">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.17.0/jquery.validate.js"></script>
+        <script>
+          $(function() 
+          {
+            $("#form").validate({
+                 rules: {
+                        correo: {
+                            required: true,
+                            email: true
+                        },
+                        nombres: "required",
+                        apellidos: "required",
+                        edad: "required",
+                        region: "required",
+                        genero:"required",
+                        dron:"required"            
+                    }, //rules
+                messages: {
+                    correo: {
+                        required: 'Ingresa tu correo electrónico',
+                        email: 'Formato de correo no válido'
+                    },
+                    nombres: {
+                        required: 'Ingresa una nombres',
+                        minlength: 'Caracteres insuficientes'
+                    },
+                    apellidos:{
+                        required: 'Ingrese apellidos',
+                        minlength: 'Cantidad de digitos insuficiente'
+                    },
+                    
+                    edad: {
+                        required: 'Reingresa la edad',
+                        minlength: 'Caracteres insuficientes'
+    
+                    },
+
+                    region: {
+                        required: 'Selecciona una región',
+                    },
+
+                    genero: {
+                        required: 'Selecciona un genero',
+                    },
+
+                    dron: {
+                        required: 'Selecciona si posees dron',
+                    },
+
+
+                }//messages
+            }); //$('#mi-formulario').validate
+        }); //function
+    
+      </script>
         
+
+    
     </head>
+
     <body>
         <nav class="navbar navbar-expand-sm navbar-light bg-light">
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#opciones">
@@ -129,25 +188,25 @@
           <h1>Inscripcion de cursos:</h1>
           <br>
           <br>
-          <form name="datos" action="form_receptor.html" method="POST">
-              <label for="lnombre">Nombres de Usuario:</label>
+          <form id="form"" action="index.html">
+              <labe>Nombres de Usuario:</label>
               <br>
-              <input type="text" id="nom" name="nombre" value=""  placeholder="Ingrese sus nombre" autofocus required > <br>
+              <input type="text" name="nombres" placeholder="Ingrese sus nombres" minlength="3" required> <br>
               <br>
-              <label for="lapellido">Apellidos Usuario:</label>
+              <label>Apellidos</label>
               <br>
-              <input type="text" id="ape" name="apellido" placeholder="Ingrese sus apellido" required ><br>
+              <input type="text" name="apellidos" placeholder="Ingrese sus apellidos" minlength="5" required><br>
               <br>
-              <label for="ledad">Edad Usuario:</label>
+              <label>Edad Usuario:</label>
               <br>
-              <input type="text" id="ed" name="edad" placeholder="Ingrese sus edad" required ><br>
+              <input type="text" name="edad" placeholder="Ingrese sus edad" minlength="2" required><br>
               <br>
-              <label for="lcorreo">Correo:</label>
+              <label>Correo:</label>
               <br>
-              <input type="text" id="corr" name="correo" value=""  placeholder="xxx@yyyy.com" autofocus required > <br>
+              <input type="text" name="correo" placeholder="correo@dominio.cl" minlength="6" required > <br>
               <br>
-              <label for="correo">Correo:</label>
-              <select name="region" id=reg >
+              <label for="lregion">region:</label>
+              <select name="region" required >
                   <option value="1">Arica y Parinacota</option>
                   <option value="2">Tarapacá</option>
                   <option value="3">Antofagasta</option>
@@ -168,26 +227,28 @@
               </select>
               <br>
               <br>
-              <label for="lgenero">Seleccione género:</label>
-              <input type="radio" id="hombre" name="genero" value="hombre">
-              <label for="hombre">Hombre</label>
-              <input type="radio" id="mujer" name="genero" value="mujer">
-              <label for="mujer">Mujer</label>
-              <input type="radio" id="otro" name="genero" value="otro">
-              <label for="otro">Otro</label>
+              <label for="lgenero">Genero:</label>
+              <select name="genero" required>
+                <option value="1">Hombre</option>
+                <option value="2">Mujer</option>
+                <option value="3">Otro</option>
+              </select>
               <br>
               <br>
-              <label for="ldron">¿Posee dron?:</label>
-            <input type="radio" id="si" name="dron" value="si">
-            <label for="si">Si</label>
-            <input type="radio" id="no" name="dron" value="no">
-            <label for="no">No</label>
+              <label for="ldron">Posee dron?:</label>
+              <select name="dron" required>
+                <option value="1">Si</option>
+                <option value="2">No</option>
+              </select>
             <br>
             <br>
-            <input type="submit" value="Enviar">
-            <input type="reset" value="Limpiar">
+            <button>Enviar</button>
             <br>
             <br>
+            
+
+
+
         <div class="row">
             <div class="col-xl-12"  style="background-color:rgb(224, 224, 224)">
             <h5 class="derechos_reservados">
