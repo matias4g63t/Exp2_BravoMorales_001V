@@ -87,6 +87,7 @@
         <title>Dronboarding SpA</title>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"> 
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <link rel="stylesheet" type="text/css" href="css_dronboarding/estilos.css"> 
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
         <link href="css/bootstrap.min.css" type="text/css" rel="stylesheet">
@@ -146,6 +147,17 @@
         }); //function
     
       </script>
+      <script>
+
+        function CambiaColor(a)
+        {
+            a.style.background = "orange";
+        }
+
+        
+
+
+      </script>
         
 
     
@@ -184,26 +196,34 @@
             </div>
         <div>
           </nav>
-            
-          <h1>Inscripcion de cursos:</h1>
-          <br>
+
+
+          <h2 onmouseover="style.color = 'green'" onmouseout="style.color= 'black'">
+            <p class="ex1">
+            Inscripcion de cursos:
+            </p>
+          </h2>
+          
+          
           <br>
           <form id="form"" action="index.html">
+          <div>
+            <p class="ex1">
               <labe>Nombres de Usuario:</label>
               <br>
-              <input type="text" name="nombres" placeholder="Ingrese sus nombres" minlength="3" required> <br>
+              <input type="text" name="nombres" id="iname" type="text" onfocus="CambiaColor(this)" placeholder="Ingrese sus nombres" minlength="3" required> <br>
               <br>
               <label>Apellidos</label>
               <br>
-              <input type="text" name="apellidos" placeholder="Ingrese sus apellidos" minlength="5" required><br>
+              <input type="text" name="apellidos" id="iape" type="text" onfocus="CambiaColor(this)" placeholder="Ingrese sus apellidos" minlength="5" required><br>
               <br>
               <label>Edad Usuario:</label>
               <br>
-              <input type="text" name="edad" placeholder="Ingrese sus edad" minlength="2" required><br>
+              <input type="text" name="edad" id="ied" type="text" onfocus="CambiaColor(this)" placeholder="Ingrese sus edad" minlength="2" required><br>
               <br>
               <label>Correo:</label>
               <br>
-              <input type="text" name="correo" placeholder="correo@dominio.cl" minlength="6" required > <br>
+              <input type="text" name="correo" id="icorr" type="text" onfocus="CambiaColor(this)" placeholder="correo@dominio.cl" minlength="6" required > <br>
               <br>
               <label for="lregion">region:</label>
               <select name="region" required >
@@ -235,7 +255,7 @@
               </select>
               <br>
               <br>
-              <label for="ldron">Posee dron?:</label>
+              <label for="ldron">Posee dron?</label>
               <select name="dron" required>
                 <option value="1">Si</option>
                 <option value="2">No</option>
@@ -245,8 +265,9 @@
             <button>Enviar</button>
             <br>
             <br>
-            
-
+          </div>  
+          </p>
+          </div>
 
 
         <div class="row">
@@ -264,3 +285,4 @@
         </div>
     </body>
 </html>
+
